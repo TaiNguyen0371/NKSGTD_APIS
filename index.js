@@ -16,28 +16,28 @@ app.use(express.json());
 app.get("/apis/luckybox", (req, res) => {
   const gift = [
     {
-      name: "Quà 1",
+      name: "Voucher 500K",
       rate: 20,
     },
     {
-      name: "Quà 2",
-      rate: 20,
+      name: "Miễn phí cạo vôi đánh bóng",
+      rate: 15,
     },
     {
-      name: "Quà 3",
+      name: "Miễn phí cạo vôi đánh bóng + Miễn phí trám răng 02 vị trí",
+      rate: 15,
+    },
+    {
+      name: "Miễn phí trám răng 02 vị trí",
+      rate: 15,
+    },
+    {
+      name: "Miễn phí trám răng 02 vji trí + Giảm 50% tẩy trắng răng",
+      rate: 25,
+    },
+    {
+      name: "Giảm 50% tẩy trắng răng",
       rate: 10,
-    },
-    {
-      name: "Quà 4",
-      rate: 10,
-    },
-    {
-      name: "Quà 5",
-      rate: 20,
-    },
-    {
-      name: "Quà 6",
-      rate: 20,
     },
   ];
   const giftList = [];
