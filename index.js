@@ -32,7 +32,7 @@ app.get("/apis/luckybox", (req, res) => {
       rate: 15,
     },
     {
-      name: "Miễn phí trám răng 02 vji trí + Giảm 50% tẩy trắng răng",
+      name: "Miễn phí trám răng 02 vị trí + Giảm 50% tẩy trắng răng",
       rate: 25,
     },
     {
