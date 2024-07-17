@@ -49,7 +49,10 @@ app.get("/apis/luckybox", (req, res) => {
   const giftList = [];
   for (let i = 0; i < gift.length; i++) {
     for (let j = 0; j < gift[i].rate; j++) {
-      giftList.push(gift[i].name);
+      giftList.push({
+        name: gift[i].name,
+        gif: gift[i].gif,
+      });
     }
   }
   const randomNumber = Math.floor(Math.random() * 100);
