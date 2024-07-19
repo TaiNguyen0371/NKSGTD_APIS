@@ -18,32 +18,32 @@ app.get("/apis/luckybox", (req, res) => {
     {
       name: "Voucher giảm giá 500K",
       rate: 20,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIFT-VOUCHER-55K.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/500K.mp4",
     },
     {
       name: "Miễn phí cạo vôi đánh bóng",
       rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIFT-MIEN-PHI-CAO-VOI-DANH-BONG.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/CAO-VOI-DANH-BONG.mp4",
     },
     {
       name: "Miễn phí cạo vôi đánh bóng <br> Miễn phí trám răng 02 vị trí",
       rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIFT-MIEN-PHI-CVR-TR.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI-DANH-BONG.mp4",
     },
     {
       name: "Miễn phí trám răng 02 vị trí",
       rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIFT-MIEN-PHI-TRAM-RANG.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI.mp4",
     },
     {
       name: "Miễn phí trám răng 02 vị trí <br> Giảm 50% tẩy trắng răng",
       rate: 25,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIFT-MIEN-PHI-TR-GIAM-50.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2VITRI-50.mp4",
     },
     {
       name: "Giảm 50% tẩy trắng răng",
       rate: 10,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIFT-TAY-TRANG-RANG.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIAM-50.mp4",
     },
   ];
   const giftList = [];
