@@ -3,8 +3,12 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const http = require("http");
 const cors = require("cors");
+const dotenv = require("dotenv");
+const db = require("./src/db/config");
 
 const PORT = process.env.PORT || 3000;
+dotenv.config();
+db.connect();
 console.log(PORT);
 const app = express();
 
@@ -13,58 +17,7 @@ app.use(logger("dev"));
 app.use(cookieParser());
 app.use(express.json());
 
-app.get("/apis/luckybox", (req, res) => {
-  const gift = [
-    {
-      name: "Voucher giảm giá 500K",
-      rate: 20,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/500K.mp4",
-    },
-    {
-      name: "Miễn phí cạo vôi đánh bóng",
-      rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/CAO-VOI-DANH-BONG.mp4",
-    },
-    {
-      name: "Miễn phí cạo vôi đánh bóng <br> Miễn phí trám răng 02 vị trí",
-      rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI-DANH-BONG.mp4",
-    },
-    {
-      name: "Miễn phí trám răng 02 vị trí",
-      rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI.mp4",
-    },
-    {
-      name: "Miễn phí trám răng 02 vị trí <br> Giảm 50% tẩy trắng răng",
-      rate: 25,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2VITRI-50.mp4",
-    },
-    {
-      name: "Giảm 50% tẩy trắng răng",
-      rate: 10,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIAM-50.mp4",
-    },
-  ];
-  const giftList = [];
-  for (let i = 0; i < gift.length; i++) {
-    for (let j = 0; j < gift[i].rate; j++) {
-      giftList.push({
-        name: gift[i].name,
-        gif: gift[i].gif,
-      });
-    }
-  }
-  const randomNumber = Math.floor(Math.random() * 100);
-  res.json({
-    status: "Success",
-    gift: giftList[randomNumber],
-  });
-});
-
-app.get("/", (req, res) => {
-  res.send("NHA KHOA SÀI GÒN TÂM ĐỨC APIS!");
-});
+app.use("/apis", require("./src/routes"));
 
 const server = http.createServer(app);
 server.listen(PORT, () => {
