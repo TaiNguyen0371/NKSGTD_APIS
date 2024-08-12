@@ -59,6 +59,8 @@ class UsersController {
           success: true,
           data: { ...updatedData._doc, accessToken },
         });
+      }else{
+        res.status(500).json({ success: false, message: "Mật khẩu không chính xác" });
       }
     } catch (err) {
       res.status(500).json({ success: false, message: err.message });
