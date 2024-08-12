@@ -12,13 +12,10 @@ class UsersController {
           data.password = hash;
           const existsUser = await UsersModel.find({ tel: data.tel });
           if (existsUser.length > 0) {
-            return res
-              .status(400)
-              .json({
-                success: false,
-                message:
-                  "Tài khoản đã tồn tại. Vui lòng thay đổi số điện thoại",
-              });
+            return res.status(400).json({
+              success: false,
+              message: "Tài khoản đã tồn tại. Vui lòng thay đổi số điện thoại",
+            });
           } else {
             const user = await UsersModel.create(data);
             // const populateUser = await UsersModel.findById(user._id);
@@ -35,6 +32,11 @@ class UsersController {
     try {
       const { tel, password } = req.body;
       const data = await UsersModel.findOne({ tel: tel });
+      console.log("test data");
+      console.log(tel, password);
+      console.log(data);
+      console.log(bcrypt.compare(password, data.password));
+
       if (bcrypt.compare(password, data.password)) {
         const accessToken = jwt.sign(
           { id: data._id },
@@ -54,13 +56,15 @@ class UsersController {
           data._id,
           { refreshToken: refreshToken },
           { new: true }
-        ).populate('gifts');
+        ).populate("gifts");
         res.status(200).json({
           success: true,
           data: { ...updatedData._doc, accessToken },
         });
-      }else{
-        res.status(500).json({ success: false, message: "Mật khẩu không chính xác" });
+      } else {
+        res
+          .status(500)
+          .json({ success: false, message: "Mật khẩu không chính xác" });
       }
     } catch (err) {
       res.status(500).json({ success: false, message: err.message });
