@@ -9,23 +9,23 @@ const db = require("./src/db/config");
 const PORT = process.env.PORT || 3000;
 dotenv.config();
 db.connect();
-console.log(PORT);
 const app = express();
 
 app.use(cors());
-app.use(logger("dev"));
-app.use(cookieParser());
-app.use(express.json());
-
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,HEAD,OPTIONS");
   res.header(
     "Access-Control-Allow-Headers",
     "Content-Type, Origin, Authorization, Accept, X-Requested-With"
   );
   next();
 });
+app.use(logger("dev"));
+app.use(cookieParser());
+app.use(express.json());
+
+
 
 app.use("/apis", require("./src/routes"));
 
