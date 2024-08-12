@@ -32,12 +32,8 @@ class UsersController {
     try {
       const { tel, password } = req.body;
       const data = await UsersModel.findOne({ tel: tel });
-      console.log("test data");
-      console.log(tel, password);
-      console.log(data);
-      console.log(bcrypt.compare(password, data.password));
-
-      if (bcrypt.compare(password, data.password)) {
+      const checkPassword = await bcrypt.compare(password, data.password);
+      if (checkPassword) {
         const accessToken = jwt.sign(
           { id: data._id },
           process.env.ACCESS_TOKEN,
