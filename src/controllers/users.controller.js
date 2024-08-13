@@ -32,35 +32,39 @@ class UsersController {
     try {
       const { tel, password } = req.body;
       const data = await UsersModel.findOne({ tel: tel });
-      const checkPassword = await bcrypt.compare(password, data.password);
-      if (checkPassword) {
-        const accessToken = jwt.sign(
-          { id: data._id },
-          process.env.ACCESS_TOKEN,
-          {
-            expiresIn: "30s",
-          }
-        );
-        const refreshToken = jwt.sign(
-          { id: data._id },
-          process.env.REFRESH_TOKEN,
-          {
-            expiresIn: "1d",
-          }
-        );
-        const updatedData = await UsersModel.findByIdAndUpdate(
-          data._id,
-          { refreshToken: refreshToken },
-          { new: true }
-        ).populate("gifts");
-        res.status(200).json({
-          success: true,
-          data: { ...updatedData._doc, accessToken },
-        });
-      } else {
-        res
-          .status(500)
-          .json({ success: false, message: "Mật khẩu không chính xác" });
+      if(!data) {
+        return res.status(400).json({ success: false, message: "Tài khoản không tồn tại" });
+      }else{
+        const checkPassword = await bcrypt.compare(password, data.password);
+        if (checkPassword) {
+          const accessToken = jwt.sign(
+            { id: data._id },
+            process.env.ACCESS_TOKEN,
+            {
+              expiresIn: "30s",
+            }
+          );
+          const refreshToken = jwt.sign(
+            { id: data._id },
+            process.env.REFRESH_TOKEN,
+            {
+              expiresIn: "1d",
+            }
+          );
+          const updatedData = await UsersModel.findByIdAndUpdate(
+            data._id,
+            { refreshToken: refreshToken },
+            { new: true }
+          ).populate("gifts");
+          res.status(200).json({
+            success: true,
+            data: { ...updatedData._doc, accessToken },
+          });
+        } else {
+          res
+            .status(500)
+            .json({ success: false, message: "Mật khẩu không chính xác" });
+        }
       }
     } catch (err) {
       res.status(500).json({ success: false, message: err.message });
