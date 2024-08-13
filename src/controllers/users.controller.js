@@ -32,9 +32,11 @@ class UsersController {
     try {
       const { tel, password } = req.body;
       const data = await UsersModel.findOne({ tel: tel });
-      if(!data) {
-        return res.status(400).json({ success: false, message: "Tài khoản không tồn tại" });
-      }else{
+      if (!data) {
+        return res
+          .status(400)
+          .json({ success: false, message: "Tài khoản không tồn tại" });
+      } else {
         const checkPassword = await bcrypt.compare(password, data.password);
         if (checkPassword) {
           const accessToken = jwt.sign(
@@ -58,7 +60,12 @@ class UsersController {
           ).populate("gifts");
           res.status(200).json({
             success: true,
-            data: { ...updatedData._doc, accessToken },
+            data: {
+              fullName: updatedData._doc.fullName,
+              points: updatedData._doc.points,
+              accessToken,
+              refreshToken,
+            },
           });
         } else {
           res
