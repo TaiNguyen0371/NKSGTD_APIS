@@ -50,7 +50,7 @@ class UsersController {
             { id: data._id },
             process.env.REFRESH_TOKEN,
             {
-              expiresIn: "1d",
+              expiresIn: "10d",
             }
           );
           const updatedData = await UsersModel.findByIdAndUpdate(
