@@ -149,7 +149,7 @@ class UsersController {
     try {
       const data = await UsersModel.findByIdAndUpdate(
         req.user._id,
-        { $push: { gifts: req.body }, $inc: { points: -req.body.price } },
+        { $push: { gifts: req.body.id }, $inc: { points: -req.body.price } },
         { new: true }
       );
       res.status(200).json({ success: true, data: data });
