@@ -139,6 +139,12 @@ class UsersController {
         res.status(200).json({
           success: true,
           data: { ...populateUser._doc, accessToken: newAccessToken },
+          data: {
+            fullName: populateUser._doc.fullName,
+            points: populateUser._doc.points,
+            accessToken:newAccessToken,
+            refreshToken: newRefreshToken,
+          },
         });
       }
     } catch (err) {
