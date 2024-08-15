@@ -41,14 +41,14 @@ class UsersController {
         if (checkPassword) {
           const accessToken = jwt.sign(
             { id: data._id },
-            process.env.ACCESS_TOKEN,
+            'ACCESS_TOKEN_NKSGTĐAPI',
             {
               expiresIn: "30s",
             }
           );
           const refreshToken = jwt.sign(
             { id: data._id },
-            process.env.REFRESH_TOKEN,
+            'REFRESH_TOKEN_NKSGTĐAPI',
             {
               expiresIn: "10d",
             }
@@ -97,7 +97,7 @@ class UsersController {
       // Check existence of token
       if (oldRefreshToken) {
         // Check if token is valid
-        jwt.verify(oldRefreshToken, process.env.REFRESH_TOKEN, async (err) => {
+        jwt.verify(oldRefreshToken, 'REFRESH_TOKEN_NKSGTĐAPI', async (err) => {
           if (err) {
             res
               .status(403)
@@ -106,7 +106,7 @@ class UsersController {
           }
         });
         // Check if token has expired
-        const decoded = jwt.decode(oldRefreshToken, process.env.REFRESH_TOKEN);
+        const decoded = jwt.decode(oldRefreshToken, 'REFRESH_TOKEN_NKSGTĐAPI');
         if (decoded.exp < Date.now() / 1000) {
           res.status(403).json({ success: false, message: "Token expired" });
           return;
@@ -118,14 +118,14 @@ class UsersController {
         // Generate new tokens
         const newAccessToken = jwt.sign(
           { id: user._id },
-          process.env.ACCESS_TOKEN,
+          'ACCESS_TOKEN_NKSGTĐAPI',
           { expiresIn: "30s" }
         );
         const newRefreshToken = jwt.sign(
           { id: user._id },
-          process.env.REFRESH_TOKEN,
+          'REFRESH_TOKEN_NKSGTĐAPI',
           {
-            expiresIn: "1d",
+            expiresIn: "10d",
           }
         );
         // Update user
