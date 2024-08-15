@@ -94,6 +94,7 @@ class UsersController {
   async refreshToken(req, res) {
     try {
       const oldRefreshToken = req.params.token;
+      console.log(oldRefreshToken);
       // Check existence of token
       if (oldRefreshToken) {
         // Check if token is valid
