@@ -61,7 +61,7 @@ router.get("/luckybox", (req, res) => {
 router.post("/register", userController.register);
 router.post("/login", userController.login);
 router.put("/logout", verifyToken, userController.logout);
-router.get('/refreshToken', userController.refreshToken);
+router.get('/refreshToken/:token', userController.refreshToken);
 router.get("/getMatches", matchesController.getAll);
 router.post("/createMatch", matchesController.create);
 router.post("/createVote",verifyToken, votesController.create);
