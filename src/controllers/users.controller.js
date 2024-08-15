@@ -165,6 +165,10 @@ class UsersController {
 
   async buyGifts(req, res) {
     try {
+      const user = await UsersModel.findOne({ _id: req.user._id });
+      if(user.points < req.body.price) {
+        return res.status(400).json({ success: false, message: "Không đủ điểm để mua" });
+      }
       const data = await UsersModel.findByIdAndUpdate(
         req.user._id,
         { $push: { gifts: req.body.id }, $inc: { points: -req.body.price } },
