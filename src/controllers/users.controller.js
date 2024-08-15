@@ -126,7 +126,7 @@ class UsersController {
         // Generate new tokens
         const newAccessToken = jwt.sign(
           { id: user._id },
-          "process.env.ACCESS_TOKEN",
+          process.env.ACCESS_TOKEN,
           { expiresIn: "30s" }
         );
         const newRefreshToken = jwt.sign(
