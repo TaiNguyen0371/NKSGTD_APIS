@@ -41,14 +41,14 @@ class UsersController {
         if (checkPassword) {
           const accessToken = jwt.sign(
             { id: data._id },
-            'ACCESS_TOKEN_NKSGTĐAPI',
+            process.env.ACCESS_TOKEN,
             {
               expiresIn: "30s",
             }
           );
           const refreshToken = jwt.sign(
             { id: data._id },
-            'REFRESH_TOKEN_NKSGTĐAPI',
+            process.env.REFRESH_TOKEN,
             {
               expiresIn: "10d",
             }
@@ -98,16 +98,23 @@ class UsersController {
       // Check existence of token
       if (oldRefreshToken) {
         // Check if token is valid
-        jwt.verify(oldRefreshToken, 'REFRESH_TOKEN_NKSGTĐAPI', async (err) => {
-          if (err) {
-            res
-              .status(403)
-              .json({ success: false, message: "Token not valid" });
-            return;
+        jwt.verify(
+          oldRefreshToken,
+          process.env.REFRESH_TOKEN,
+          async (err) => {
+            if (err) {
+              res
+                .status(403)
+                .json({ success: false, message: "Token not valid" });
+              return;
+            }
           }
-        });
+        );
         // Check if token has expired
-        const decoded = jwt.decode(oldRefreshToken, 'REFRESH_TOKEN_NKSGTĐAPI');
+        const decoded = jwt.decode(
+          oldRefreshToken,
+          process.env.REFRESH_TOKEN
+        );
         if (decoded.exp < Date.now() / 1000) {
           res.status(403).json({ success: false, message: "Token expired" });
           return;
@@ -119,12 +126,12 @@ class UsersController {
         // Generate new tokens
         const newAccessToken = jwt.sign(
           { id: user._id },
-          'ACCESS_TOKEN_NKSGTĐAPI',
+          "process.env.ACCESS_TOKEN",
           { expiresIn: "30s" }
         );
         const newRefreshToken = jwt.sign(
           { id: user._id },
-          'REFRESH_TOKEN_NKSGTĐAPI',
+          process.env.REFRESH_TOKEN,
           {
             expiresIn: "10d",
           }
@@ -142,7 +149,7 @@ class UsersController {
           data: {
             fullName: populateUser._doc.fullName,
             points: populateUser._doc.points,
-            accessToken:newAccessToken,
+            accessToken: newAccessToken,
             refreshToken: newRefreshToken,
           },
         });
