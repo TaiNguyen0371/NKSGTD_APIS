@@ -65,6 +65,8 @@ class UsersController {
               points: updatedData._doc.points,
               accessToken,
               refreshToken,
+              tel: updatedData._doc.tel,
+              gifts: updatedData._doc.gifts,
             },
           });
         } else {
@@ -151,6 +153,8 @@ class UsersController {
             points: populateUser._doc.points,
             accessToken: newAccessToken,
             refreshToken: newRefreshToken,
+            gifts: populateUser._doc.gifts,
+            tel: populateUser._doc.tel,
           },
         });
       }
@@ -166,7 +170,14 @@ class UsersController {
         { $push: { gifts: req.body.id }, $inc: { points: -req.body.price } },
         { new: true }
       );
-      res.status(200).json({ success: true, data: data });
+      res.status(200).json({ success: true, data: {
+        fullName: data._doc.fullName,
+        points: data._doc.points,
+        tel: data._doc.tel,
+        gifts: data._doc.gifts,
+        accessToken: data._doc.accessToken,
+        refreshToken: data._doc.refreshToken
+      } });
     } catch (err) {
       res.status(500).json({ success: false, message: err.message });
     }
