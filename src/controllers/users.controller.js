@@ -100,23 +100,16 @@ class UsersController {
       // Check existence of token
       if (oldRefreshToken) {
         // Check if token is valid
-        jwt.verify(
-          oldRefreshToken,
-          process.env.REFRESH_TOKEN,
-          async (err) => {
-            if (err) {
-              res
-                .status(403)
-                .json({ success: false, message: "Token not valid" });
-              return;
-            }
+        jwt.verify(oldRefreshToken, process.env.REFRESH_TOKEN, async (err) => {
+          if (err) {
+            res
+              .status(403)
+              .json({ success: false, message: "Token not valid" });
+            return;
           }
-        );
+        });
         // Check if token has expired
-        const decoded = jwt.decode(
-          oldRefreshToken,
-          process.env.REFRESH_TOKEN
-        );
+        const decoded = jwt.decode(oldRefreshToken, process.env.REFRESH_TOKEN);
         if (decoded.exp < Date.now() / 1000) {
           res.status(403).json({ success: false, message: "Token expired" });
           return;
@@ -144,7 +137,9 @@ class UsersController {
           { refreshToken: newRefreshToken }
         );
         // Return new tokens
-        const populateUser = await UsersModel.findById(user._id);
+        const populateUser = await UsersModel.findById(user._id).populate(
+          "gifts"
+        );
         res.status(200).json({
           success: true,
           data: { ...populateUser._doc, accessToken: newAccessToken },
@@ -166,22 +161,27 @@ class UsersController {
   async buyGifts(req, res) {
     try {
       const user = await UsersModel.findOne({ _id: req.user._id });
-      if(user.points < req.body.price) {
-        return res.status(400).json({ success: false, message: "Không đủ điểm để mua" });
+      if (user.points < req.body.price) {
+        return res
+          .status(400)
+          .json({ success: false, message: "Không đủ điểm để mua" });
       }
       const data = await UsersModel.findByIdAndUpdate(
         req.user._id,
         { $push: { gifts: req.body.id }, $inc: { points: -req.body.price } },
         { new: true }
-      );
-      res.status(200).json({ success: true, data: {
-        fullName: data._doc.fullName,
-        points: data._doc.points,
-        tel: data._doc.tel,
-        gifts: data._doc.gifts,
-        accessToken: data._doc.accessToken,
-        refreshToken: data._doc.refreshToken
-      } });
+      ).populate("gifts");
+      res.status(200).json({
+        success: true,
+        data: {
+          fullName: data._doc.fullName,
+          points: data._doc.points,
+          tel: data._doc.tel,
+          gifts: data._doc.gifts,
+          accessToken: data._doc.accessToken,
+          refreshToken: data._doc.refreshToken,
+        },
+      });
     } catch (err) {
       res.status(500).json({ success: false, message: err.message });
     }
