@@ -13,7 +13,11 @@ const User = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: "Gift",
       },
-    ]
+    ],
+    notes: { type: String, default: "" },
+    saler: { type: String, default: "" },
+    contacted: { type: Boolean, default: false },
+
   },
   {
     timestamps: true,
