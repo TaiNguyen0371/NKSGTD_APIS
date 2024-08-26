@@ -4,8 +4,8 @@ const UsersModel = require("../models/users.model");
 class VotesController {
     async getVotesByUser(req, res) {
         try{
-            const { userId } = req.user._id;
-            const data = await VotesModel.findOne({ userId }).populate('userId');
+            const userId = req.user._id;
+            const data = await VotesModel.find({ userId }).populate('userId');
             res.status(200).json({ success: true, data: data });
         }catch(err){
             res.status(500).json({ success: false, message: err.message });
