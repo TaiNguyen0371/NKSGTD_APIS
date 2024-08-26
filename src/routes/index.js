@@ -65,7 +65,7 @@ router.get('/refreshToken/:token', userController.refreshToken);
 router.get("/getMatches", matchesController.getAll);
 router.post("/createMatch", matchesController.create);
 router.post("/createVote",verifyToken, votesController.create);
-router.get('/getVotesByUser/:userId',verifyToken, votesController.getVotesByUser);
+router.get('/getVotesByUser',verifyToken, votesController.getVotesByUser);
 router.get('/getVotesByMatch',verifyToken, votesController.getVotesByMatch);
 router.post('/buyGifts', verifyToken, userController.buyGifts);
 router.get('/getGifts', giftsController.getGifts);
