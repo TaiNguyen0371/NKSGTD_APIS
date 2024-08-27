@@ -24,8 +24,15 @@ class VotesController {
         try {
             const data = req.body;
             data.userId = req.user._id;
-            const vote = await VotesModel.create(data);
-            res.status(200).json({ success: true, data: vote });
+            if(data.newVote) {
+                const vote = await VotesModel.create(data);
+                res.status(200).json({ success: true, data: vote });
+            }else{
+                const oldVote = await VotesModel.findOne({ userId: data.userId, matchId: data.matchId });
+                const newVote = await VotesModel.findByIdAndUpdate(oldVote._id, data, { new: true });
+                res.status(200).json({ success: true, data: newVote });
+            }
+            
         } catch (err) {
             res.status(500).json({ success: false, message: err.message });
         }
