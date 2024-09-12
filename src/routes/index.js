@@ -61,6 +61,7 @@ router.get("/luckybox", (req, res) => {
 router.post("/register", userController.register);
 router.post("/login", userController.login);
 router.put("/logout", verifyToken, userController.logout);
+router.get("/getUsers", userController.getUsers);
 router.get("/refreshToken/:token", userController.refreshToken);
 router.get("/getMatches", matchesController.getAll);
 router.post("/createMatch", matchesController.create);
@@ -298,7 +299,7 @@ router.get("/teams", (req, res) => {
         { name: "Lê Thành Đạt", number: "9" },
         { name: "Lê Thanh Liêm", number: "4" },
         { name: "Nguyễn Thanh Thái", number: "17" },
-        { name: "Trần Quốc Ái", number: "2" },
+        { name: "Trần Hải Đông", number: "2" },
         { name: "Huỳnh Nhật Lãm", number: "68" },
         { name: "Lê Chí Khang", number: "123" },
       ],
