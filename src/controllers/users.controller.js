@@ -186,6 +186,16 @@ class UsersController {
       res.status(500).json({ success: false, message: err.message });
     }
   }
+
+  async getUsers(req, res) {
+    try {
+      const data = await UsersModel.find().populate("gifts");
+      res.status(200).json({ success: true, data: data });
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message });
+    }
+  } 
 }
+
 
 module.exports = new UsersController();
