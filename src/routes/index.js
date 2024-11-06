@@ -3,6 +3,7 @@ const userController = require("../controllers/users.controller");
 const matchesController = require("../controllers/matches.controller");
 const votesController = require("../controllers/votes.controller");
 const giftsController = require("../controllers/gifts.controller");
+const luckywheelgiftController = require("../controllers/luckywheelgift.controller");
 const { verifyToken } = require("../middlewares");
 const router = express.Router();
 
@@ -70,6 +71,8 @@ router.get("/getVotesByUser", verifyToken, votesController.getVotesByUser);
 router.get("/getVotesByMatch", verifyToken, votesController.getVotesByMatch);
 router.post("/buyGifts", verifyToken, userController.buyGifts);
 router.get("/getGifts", giftsController.getGifts);
+router.get("/getVotes", votesController.getAll);
+router.get('/luckywheel', luckywheelgiftController.getRandomGift);
 router.get("/teams", (req, res) => {
   const teamList = [
     {
