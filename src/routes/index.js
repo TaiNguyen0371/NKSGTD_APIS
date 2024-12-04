@@ -14,33 +14,33 @@ router.get("/", (req, res) => {
 router.get("/luckybox", (req, res) => {
   const gift = [
     {
-      name: "Voucher giảm giá 500K",
+      name: "Voucher 1 triệu",
       rate: 20,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/500K.mp4",
     },
     {
-      name: "Miễn phí cạo vôi đánh bóng",
-      rate: 15,
+      name: "Voucher 2 triệu",
+      rate: 10,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/CAO-VOI-DANH-BONG.mp4",
     },
     {
-      name: "Miễn phí cạo vôi đánh bóng <br> Miễn phí trám răng 02 vị trí",
-      rate: 15,
+      name: "1 Răng toàn sứ Venus HT",
+      rate: 20,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI-DANH-BONG.mp4",
     },
     {
-      name: "Miễn phí trám răng 02 vị trí",
+      name: "1 Răng toàn sứ Venus Multi",
       rate: 15,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI.mp4",
     },
     {
-      name: "Miễn phí trám răng 02 vị trí <br> Giảm 50% tẩy trắng răng",
-      rate: 25,
+      name: "1 Răng toàn sứ Lava Plus",
+      rate: 15,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2VITRI-50.mp4",
     },
     {
-      name: "Giảm 50% tẩy trắng răng",
-      rate: 10,
+      name: "Voucher giảm 50% răng toàn sứ",
+      rate: 20,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIAM-50.mp4",
     },
   ];
