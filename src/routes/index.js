@@ -16,32 +16,32 @@ router.get("/luckybox", (req, res) => {
     {
       name: "Voucher 1 triệu",
       rate: 20,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/500K.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-VOUCHER-1TR.mp4",
     },
     {
       name: "Voucher 2 triệu",
       rate: 10,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/CAO-VOI-DANH-BONG.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-VOUCHER-2TR.mp4",
     },
     {
       name: "1 Răng toàn sứ Venus HT",
       rate: 20,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI-DANH-BONG.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-VENUS-HT.mp4",
     },
     {
       name: "1 Răng toàn sứ Venus Multi",
       rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2-VITRI.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-VENUS-MULTI.mp4",
     },
     {
       name: "1 Răng toàn sứ Lava Plus",
       rate: 15,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/2VITRI-50.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-LAVA.mp4",
     },
     {
       name: "Voucher giảm 50% răng toàn sứ",
       rate: 20,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/07/GIAM-50.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-GIAM-50.mp4",
     },
   ];
   const giftList = [];
@@ -72,7 +72,7 @@ router.get("/getVotesByMatch", verifyToken, votesController.getVotesByMatch);
 router.post("/buyGifts", verifyToken, userController.buyGifts);
 router.get("/getGifts", giftsController.getGifts);
 router.get("/getVotes", votesController.getAll);
-router.get('/luckywheel', luckywheelgiftController.getRandomGift);
+router.get("/luckywheel", luckywheelgiftController.getRandomGift);
 router.get("/teams", (req, res) => {
   const teamList = [
     {
