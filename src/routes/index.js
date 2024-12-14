@@ -30,12 +30,12 @@ router.get("/luckybox", (req, res) => {
     },
     {
       name: "1 Răng toàn sứ Venus Multi",
-      rate: 15,
+      rate: 30,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-VENUS-MULTI.mp4",
     },
     {
       name: "1 Răng toàn sứ Lava Plus",
-      rate: 15,
+      rate: 0,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/VIDEO-GIFT-NOEL-LAVA.mp4",
     },
     {
