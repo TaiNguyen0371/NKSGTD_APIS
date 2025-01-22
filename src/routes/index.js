@@ -15,34 +15,19 @@ router.get("/luckybox", (req, res) => {
   const gift = [
     {
       name: "Voucher 1 triệu",
-      rate: 34,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/Bao-li-xi-1-1.mp4",
+      rate: 65,
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/01/VIDEO-ANIMATION-GIF-1tr-1.mp4",
     },
     {
       name: "Voucher 2 triệu",
-      rate: 33,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/Bao-li-xi-2-2-1.mp4",
+      rate: 30,
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/01/VIDEO-ANIMATION-GIF-2tr-1.mp4",
     },
     {
-      name: "Giảm 50% răng toàn sứ và phiều lì xì 200.000đ",
-      rate: 0,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/Bao-li-xi-3-1.mp4",
-    },
-    {
-      name: "1 Răng toàn sứ Venus Multi Trị giá 4 Triệu (khi khách hàng làm từ 3 răng) và cạo vôi răng miễn phí",
-      rate: 33,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/Bao-li-xi-5-1-1.mp4",
-    },
-    {
-      name: "Giảm 50% răng toàn sứ và phiều lì xì 300.000đ",
-      rate: 0,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/Bao-li-xi-4-1.mp4",
-    },
-    {
-      name: "Phiếu giảm giá 50% tẩy trắng răng và răng toàn sứ",
-      rate: 0,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2024/12/Bao-li-xi-6-1.mp4",
-    },
+      name: "Voucher 3 triệu",
+      rate: 5,
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/01/VIDEO-ANIMATION-GIF-3tr-1.mp4",
+    }
   ];
   const giftList = [];
   for (let i = 0; i < gift.length; i++) {
