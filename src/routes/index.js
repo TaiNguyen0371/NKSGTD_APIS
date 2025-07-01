@@ -14,20 +14,25 @@ router.get("/", (req, res) => {
 router.get("/luckybox", (req, res) => {
   const gift = [
     {
-      name: "Voucher 1 triệu",
-      rate: 35,
+      name: "Phiếu giảm giá 200K",
+      rate: 60,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher1tr.mp4",
     },
     {
-      name: "Voucher 2 triệu",
-      rate: 30,
+      name: "Phiếu giảm giá 300K",
+      rate: 25,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher2tr.mp4",
     },
     {
-      name: "Gói ưu đãi đóa hoa tỏa sáng - Giảm 50% tẩy trắng răng, tặng 1 răng khi làm 2 răng toàn sứ",
-      rate: 35,
+      name: "Phiếu giảm giá 400K",
+      rate: 10,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher50.mp4",
-    }
+    },
+    {
+      name: "Phiếu giảm giá 500K",
+      rate: 5,
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher50.mp4",
+    },
   ];
   const giftList = [];
   for (let i = 0; i < gift.length; i++) {
