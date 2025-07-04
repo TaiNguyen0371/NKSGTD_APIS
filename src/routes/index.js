@@ -16,22 +16,22 @@ router.get("/luckybox", (req, res) => {
     {
       name: "Phiếu giảm giá 200K",
       rate: 60,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher1tr.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/07/gif-200k.mp4",
     },
     {
       name: "Phiếu giảm giá 300K",
       rate: 25,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher2tr.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/07/gif-300k.mp4",
     },
     {
       name: "Phiếu giảm giá 400K",
       rate: 10,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher50.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/07/gif-400k.mp4",
     },
     {
       name: "Phiếu giảm giá 500K",
       rate: 5,
-      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/02/voucher50.mp4",
+      gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/07/gif-500k.mp4",
     },
   ];
   const giftList = [];
