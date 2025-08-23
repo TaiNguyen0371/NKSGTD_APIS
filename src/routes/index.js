@@ -15,17 +15,17 @@ router.get("/luckybox", (req, res) => {
   const gift = [
     {
       name: "Phiếu giảm giá 300.000đ",
-      rate: 100,
+      rate: 35,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/07/gif-300k.mp4",
     },
     {
       name: "Phiếu giảm giá 400.000đ",
-      rate: 0,
+      rate: 35,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/07/gif-400k.mp4",
     },
     {
       name: "Phiếu giảm giá 500.000đ",
-      rate: 0,
+      rate: 30,
       gif: "https://nhakhoasaigontamduc.com/wp-content/uploads/2025/07/gif-500k.mp4",
     },
   ];
