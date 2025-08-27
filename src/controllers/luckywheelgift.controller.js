@@ -19,14 +19,14 @@ class LuckyWheelGiftController {
             const randomIndex = Math.floor(Math.random() * giftWeighted.length);
             const selectedGift = giftWeighted[randomIndex];
 
-            // Nếu name = "abc" thì trừ ratio đi 1 (nếu ratio > 0)
-            if (selectedGift.name === "Nón bảo hiểm Tập đoàn Nha khoa Sài Gòn Tâm Đức + Voucher VIP 2 triệu" && selectedGift.ratio > 0) {
-                await LuckyWheelGiftModel.updateOne(
-                    { _id: selectedGift._id },
-                    { $inc: { ratio: -1 } }
-                );
-                selectedGift.ratio = selectedGift.ratio - 1; // cập nhật tạm trong object trả về
-            }
+            // // Nếu name = "abc" thì trừ ratio đi 1 (nếu ratio > 0)
+            // if (selectedGift.name === "Nón bảo hiểm Tập đoàn Nha khoa Sài Gòn Tâm Đức + Voucher VIP 2 triệu" && selectedGift.ratio > 0) {
+            //     await LuckyWheelGiftModel.updateOne(
+            //         { _id: selectedGift._id },
+            //         { $inc: { ratio: -1 } }
+            //     );
+            //     selectedGift.ratio = selectedGift.ratio - 1; // cập nhật tạm trong object trả về
+            // }
 
             return res.status(200).json({ success: true, data: selectedGift });
         } catch (err) {
