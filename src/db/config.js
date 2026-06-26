@@ -4,7 +4,7 @@ const password = "0Tainguyen0";
 const clusterName = "cluster0";
 const dbname = "NKSGTĐ_APIS";
 
-const url = `mongodb+srv://${username}:${password}@${clusterName}.uovtxms.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+const url = `mongodb+srv://devnksgtd_db_user:varETr7ADnxh2opI@api.7g5v70z.mongodb.net`;
 const connect = async () => {
   try {
     await mongoose.connect(url);
