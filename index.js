@@ -8,7 +8,7 @@ const db = require("./src/db/config");
 
 const PORT = process.env.PORT || 3000;
 dotenv.config();
-db.connect();
+
 const app = express();
 
 app.use(cors());
@@ -29,7 +29,17 @@ app.use(express.json());
 
 app.use("/apis", require("./src/routes"));
 
-const server = http.createServer(app);
-server.listen(PORT, () => {
-  console.log(`Connecting port: ${PORT}`);
-});
+const start = async () => {
+    try {
+        await db.connect();
+
+        server.listen(PORT, () => {
+            console.log(`Server running at ${PORT}`);
+        });
+
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+start();
