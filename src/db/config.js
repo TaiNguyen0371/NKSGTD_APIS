@@ -6,12 +6,14 @@ const dbname = "NKSGTĐ_APIS";
 
 const url = `mongodb+srv://${username}:${password}@${clusterName}.uovtxms.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 const connect = async () => {
-  try {
-    await mongoose.connect(url);
-    console.log("Connect database successful");
-  } catch (error) {
-    console.log(error);
-  }
-};
+    try {
+        await mongoose.connect(url);
 
+        console.log("✅ Mongo Connected");
+    } catch (err) {
+        console.error("❌ Mongo Connect Error");
+        console.error(err);
+        throw err;
+    }
+};
 module.exports = { connect };
