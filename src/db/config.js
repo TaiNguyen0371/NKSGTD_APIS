@@ -4,7 +4,7 @@ const password = "varETr7ADnxh2opI";
 const clusterName = "api";
 const dbname = "NKSGTĐ_APIS";
 
-const url = `mongodb+srv://${username}:${password}@${clusterName}.uovtxms.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${username}:${password}@${clusterName}.7g5v70z.mongodb.net/?appName=api`;
 console.log(url);
 const connect = async () => {
     try {
