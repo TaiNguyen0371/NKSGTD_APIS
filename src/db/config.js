@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-const username = "nguyentai0371";
-const password = "0Tainguyen0";
-const clusterName = "cluster0";
+const username = "devnksgtd_db_user";
+const password = "varETr7ADnxh2opI";
+const clusterName = "api";
 const dbname = "NKSGTĐ_APIS";
 
-const url = `mongodb+srv://devnksgtd_db_user:varETr7ADnxh2opI@api.7g5v70z.mongodb.net`;
+const url = `mongodb+srv://${username}:${password}@${clusterName}.uovtxms.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 const connect = async () => {
   try {
     await mongoose.connect(url);
